@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+        <input matInput  formControlName="email"/>
+        <mat-error
+            *ngIf="this.loginForm.get('email')?.getError('email')">
+            Insira um e-mail valido
+        </mat-error>
+        <mat-error
+            *ngIf="this.loginForm.get('email')?.getError('required')">
+             O campo e-mail é obrigatório!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <input matInput formControlName="password"/>
+        <mat-error 
+            *ngIf="this.loginForm.get('password')?.getError('required')">
+            O campo senha é obrigatório!
+        </mat-error>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="logIn()">LogIn</button>
+    <p>Não tem cadstro ? <a routerLink="registro">casdastre-se</a></p>
+<p>Esqueceu a senha ? <a routerLink="recuperar-senha">clique aqui</a></p>
+</form>
+
