@@ -15,7 +15,6 @@ export class LoginComponent {
     password: ['', [Validators.required,Validators.minLength(6)]]
   })
   constructor(private service : AuthService){
-
   }
 
 
@@ -23,12 +22,10 @@ export class LoginComponent {
     this.service.logIn(this.loginForm.value).subscribe(
       {
         next : (data)=>{
-          console.log(data.token);
+          
         },
         error:(error: HttpErrorResponse) => {
-          console.log(error);
-          console.log(error.status);
-          console.log(error.error.message);
+          
         }
       }
     );

@@ -1,6 +1,8 @@
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router, UrlTree } from '@angular/router';
+import { LocalStorageService } from 'angular-web-storage';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 interface LoginInterface{
@@ -15,27 +17,30 @@ interface LoginInterface{
 export class AuthService {
   url: string  = `${environment.api.host}:${environment.api.port}${environment.api.path}`
   options = {};
-  constructor(private http:HttpClient) { 
-    
-  }
+  constructor(private http:HttpClient, private localStorage:LocalStorageService, private router:Router) { }
 
   logIn(login: LoginInterface):Observable<any> {
-   return this.http.post(`${this.url}/auth/login`,login, this.options);
+   return this.http.post(`${this.url}/auth/login`,login).pipe(
+    tap({
+      next:(data:any)=>{
+        this.localStorage.set('TOKEN', data.token);
+        this.router.navigate(['/dashboard']);
+      }
+    })
+   );
   }
 
   logOut(){
-
+    return this.http.get(`${this.url}/auth/logout`).pipe(
+      tap({
+        next:()=>{
+         this.localStorage.clear();
+        }
+      })
+    );
   }
 
   isLoged(){
-
-  }
-
-  innitOptions(){
-    let headers = new HttpHeaders();
-    headers.append('Accept','application/json');
-    headers.append('Content-Type', 'application/json');
-
-    this.options = {headers: headers}
+    return this.http.get<boolean | UrlTree >(`${this.url}/auth/profile`);
   }
 }
