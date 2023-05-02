@@ -1,0 +1,24 @@
+.admin-body{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    app-admin-menu{
+        min-width: 30%;
+    }
+    .content{
+        width: 100%;
+        min-height: 89vh;
+        position: relative;
+
+        .button-open-menu{
+            border-radius: 0 5px 5px 0;
+            background-color: lightgray;
+            padding: 3px;
+            position: absolute;
+            z-index: 100;
+        }
+        .route{
+            z-index: -1 !important;
+        }
+    }
+}

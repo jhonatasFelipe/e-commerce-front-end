@@ -1,0 +1,17 @@
+<app-header></app-header>
+<mat-drawer-container class="admin-body" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" (openedChange)="toggleMenuIcon()">
+        <app-menu-admin></app-menu-admin>
+    </mat-drawer>
+    <mat-drawer-content class="content" >
+        <span class="button-open-menu" (click)="drawer.toggle()">
+            <mat-icon *ngIf="!menuOpened">menu</mat-icon>
+            <mat-icon *ngIf="menuOpened">menu_open</mat-icon>
+        </span>
+        <div class="route">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

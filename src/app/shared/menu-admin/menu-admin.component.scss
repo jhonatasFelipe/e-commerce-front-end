@@ -1,0 +1,17 @@
+mat-nav-list{
+    mat-list-item{
+        padding: 0 5px;
+        .item-menu-content{
+            display: flex;
+            &>*{
+                margin: 0 5px;
+                color: grey;
+                text-decoration: none;
+                font-size: 10;
+            }
+            a{
+                width: 100px;
+            }
+        }
+    }
+}
