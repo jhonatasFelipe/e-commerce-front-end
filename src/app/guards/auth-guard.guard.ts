@@ -10,7 +10,7 @@ export const AuthGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   return authService.isLoged().pipe(
     map(() => true),
     catchError(() =>{
-      return of(router.parseUrl('/login'));
+      return of(router.parseUrl('extenal-pages/login'));
     })
   );
 };

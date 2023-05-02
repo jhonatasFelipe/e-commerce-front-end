@@ -2,7 +2,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, UrlTree } from '@angular/router';
 import { LocalStorageService } from 'angular-web-storage';
-import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 interface LoginInterface{
@@ -24,7 +24,6 @@ export class AuthService {
     tap({
       next:(data:any)=>{
         this.localStorage.set('TOKEN', data.token);
-        this.router.navigate(['/dashboard']);
       }
     })
    );
