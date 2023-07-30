@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from "./interceptors";
 import { AngularWebStorageModule } from 'angular-web-storage';
-import { DasshboardComponent } from './admin-pages/pages/dasshboard/dasshboard.component';
+import { DashboardComponent } from './admin-pages/pages/dashboard/dashboard.component';
 import { AdminPagesComponent } from './admin-pages/admin-pages.component';
 import { ExternalAgesComponent } from './external-ages/external-ages.component';
 
@@ -19,7 +19,7 @@ import { ExternalAgesComponent } from './external-ages/external-ages.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    DasshboardComponent,
+    DashboardComponent,
     AdminPagesComponent,
     ExternalAgesComponent
   ],

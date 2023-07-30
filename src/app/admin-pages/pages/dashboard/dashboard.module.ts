@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DasshboardRoutingModule } from './dasshboard-routing.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -9,8 +9,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [],
   imports: [
     CommonModule,
-    DasshboardRoutingModule,
+    DashboardRoutingModule,
     SharedModule
   ]
 })
-export class DasshboardModule { }
+export class DashboardModule { }

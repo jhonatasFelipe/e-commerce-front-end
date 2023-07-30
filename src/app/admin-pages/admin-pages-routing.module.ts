@@ -9,7 +9,7 @@ const routes: Routes = [
     children:[
       {
         path:'dashboard',
-        loadChildren: () => import('./pages/dasshboard/dasshboard.module').then(m => m.DasshboardModule),
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
         title: "Administrativo - Dashboard"
       },
       {

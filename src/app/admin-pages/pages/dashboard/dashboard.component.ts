@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-dasshboard',
-  templateUrl: './dasshboard.component.html',
-  styleUrls: ['./dasshboard.component.scss']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DasshboardComponent {
+export class DashboardComponent {
 
   constructor(private authService:AuthService, private router:Router){
 
