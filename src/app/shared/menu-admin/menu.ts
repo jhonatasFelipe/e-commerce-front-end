@@ -20,4 +20,11 @@ export const MenuAdmin:MenuItem[] = [
         icon:'verified', 
         subMenus:null
     }
+    ,
+    {
+        label:'Categorias', 
+        route:`${routeAdmin}/categorias`, 
+        icon:'category', 
+        subMenus:null
+    }
 ];

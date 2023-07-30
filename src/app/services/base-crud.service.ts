@@ -25,7 +25,11 @@ export class BaseCrudService<T> {
     return this.http.delete(`${this.url}${this.complemento}/${id}`);
   }
 
-  public edit(id:number,body:T){
-    return this.http.put(`${this.url}${this.complemento}/${id}`, body);
+  public edit(id:number | string,body:T){
+    return this.http.put<T>(`${this.url}${this.complemento}/${id}`, body);
+  }
+
+  public getById(id:string | number | null) {
+    return this.http.get<T>(`${this.url}${this.complemento}/${id}`);
   }
 }
