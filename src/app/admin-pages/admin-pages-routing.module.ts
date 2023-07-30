@@ -16,6 +16,11 @@ const routes: Routes = [
         path:'marcas',
         loadChildren: () => import('./pages/marca/marca.module').then(m => m.MarcaModule),
         title: "Administrativo - Marcas"
+      },
+      {
+        path:'categorias',
+        loadChildren: () => import('./pages/categoria/categoria.module').then(m => m.CategoriaModule),
+        title: "Administrativo - Categorias"
       }
     ] 
   }
