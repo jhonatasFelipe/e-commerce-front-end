@@ -1,0 +1,18 @@
+
+<input id="{{id}}" type="file" hidden (change)="setValue($event)"/>
+<label for="{{id}}">
+        <p *ngIf="!value?.path && !progress" >{{placeholder}}</p>
+        <img *ngIf="value?.path && !progress" src={{fullUrl}}/>
+        <div *ngIf="!value?.path && progress" class="progress-container">
+                <p>{{percentDone}}%</p>
+                <mat-progress-bar mode="determinate" value={{percentDone}}></mat-progress-bar>
+        </div> 
+</label>
+<p class="name">{{originalName}}</p>
+<button mat-raised-button color="warn" (click)="toDelete()">
+        <mat-icon>delete</mat-icon>
+</button>
+
+
+   
+

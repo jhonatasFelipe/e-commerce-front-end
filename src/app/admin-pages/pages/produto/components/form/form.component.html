@@ -1,0 +1,91 @@
+<form [formGroup]="form" class="form-information-basic-product">
+<mat-stepper  #stepper orientation="vertical">
+    <mat-step>
+        <ng-template matStepLabel> Dados Pricipais do produto </ng-template>
+            <mat-form-field appearance="outline">
+                <input matInput type="text" placeholder="Nome" formControlName="nome"/>
+                <mat-hint>Nome do produto</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <textarea matInput placeholder="Descreva as caracteristicas" formControlName="descri"></textarea>
+                <mat-hint>Descrição</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="number" placeholder="preco" formControlName="preco" step="0.01"/>
+                <mat-hint>valor para controler de estoque</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="number" placeholder="valor" formControlName="valor" step="0.01"/>
+                <mat-hint>valor a ser mostrado na loja </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="number" placeholder="quantidade" formControlName="qtd" step="1"/>
+                <mat-hint>quantidade de produto em estoque </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="text" placeholder="codigo de barras" formControlName="codigo_de_barras"/>
+                <mat-hint>Codigo de barras do produto </mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="marca">
+                  <mat-option *ngFor="let marca of marcas" [value]=marca.id>{{ marca.nome }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <mat-slide-toggle formControlName="ativo">Produto ativo</mat-slide-toggle>
+            <div class="actions">
+                <button mat-raised-button type="button" matStepperNext>
+                    Proximo
+                </button>
+                <button mat-raised-button type="button" color="warn" matStepperPrevious>
+                    Voltar
+                </button>
+            </div>
+    </mat-step>
+    <mat-step  formArrayName="imagens" [stepControl]="imagens">
+        <button mat-raised-button type="button" (click)="addImagemField()">
+            <mat-icon>add</mat-icon>
+            add imagem
+        </button>
+        <ng-template matStepLabel>Imagens</ng-template>
+            <div class="container-input-images">
+                <span  *ngFor=" let imagem of imagens.controls; let i=index">
+                        <j2-image-uploader id="{{i}}" [formControlName]= "i" placeholder="clique para uma imagem" (deleted)="removeImageField(i)"/>
+                </span>
+            </div>
+            <div class="actions">
+                <button mat-raised-button type="button"matStepperNext>
+                    <mat-icon>save</mat-icon>
+                    proximo
+                </button>
+                <button mat-raised-button type="button" color="warn" matStepperPrevious>
+                    <mat-icon>cancel</mat-icon>
+                    anterior
+                </button>
+            </div>
+    </mat-step>
+    <mat-step>
+
+        <p>{{ form.value | json }}</p>
+        <button mat-raised-button type="button" color="primary" (click)="saveProduct()"> salvar</button>
+        <button mat-raised-button type="button" color="warn" matStepperPrevious>
+            <mat-icon>cancel</mat-icon>
+            anterior
+        </button>
+    </mat-step>
+    <!-- <mat-step [stepControl] = "form">
+        <ng-template matStepLabel>Caracteristicas</ng-template>
+        <form [formGroup]="imagens">
+            <div class="actions">
+                <button mat-raised-button type="button" (click)="saveProduct()" matStepperNext>
+                    <mat-icon>save</mat-icon>
+                    Salvar
+                </button>
+                <button mat-raised-button type="button" color="warn" matStepperPrevious >
+                    <mat-icon>cancel</mat-icon>
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </mat-step> -->
+</mat-stepper>
+</form>

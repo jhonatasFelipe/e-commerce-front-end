@@ -16,7 +16,6 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: req.headers
         .set('Authorization',`Bearer ${this.storage.get('TOKEN')}`)
         .set('Accept','application/json')
-        .set('Content-Type', 'application/json')
       });
     return next.handle(newReq);
   }

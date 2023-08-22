@@ -21,6 +21,11 @@ const routes: Routes = [
         path:'categorias',
         loadChildren: () => import('./pages/categoria/categoria.module').then(m => m.CategoriaModule),
         title: "Administrativo - Categorias"
+      },
+      {
+        path:'produtos',
+        loadChildren: () => import('./pages/produto/produto.module').then(m => m.ProdutoModule),
+        title: "Administrativo - Categorias"
       }
     ] 
   }
