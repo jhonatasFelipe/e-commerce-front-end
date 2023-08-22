@@ -21,7 +21,7 @@ import { ExternalAgesComponent } from './external-ages/external-ages.component';
     LoginComponent,
     DashboardComponent,
     AdminPagesComponent,
-    ExternalAgesComponent
+    ExternalAgesComponent,
   ],
   imports: [
     BrowserModule,

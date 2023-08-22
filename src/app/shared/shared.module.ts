@@ -7,18 +7,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { RouterModule } from '@angular/router';
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    ImageUploaderComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +36,11 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatSlideToggleModule,
+    MatProgressBarModule,
+    MatSelectModule,
   ],
   exports:[
     /* modules*/
@@ -42,10 +52,15 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatTableModule,
+    MatStepperModule,
+    MatSlideToggleModule,
+    MatProgressBarModule,
+    MatSelectModule,
 
     /* components */
     HeaderComponent,
     MenuAdminComponent,
+    ImageUploaderComponent,
   ]
 })
 export class SharedModule { }

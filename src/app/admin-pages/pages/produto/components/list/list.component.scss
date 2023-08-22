@@ -1,0 +1,16 @@
+table{
+    border: solid 1px lightgray;
+    border-radius: 5px ;
+    border-collapse: separate; 
+    border-spacing: 5px;
+    td{
+        border-radius: 5px ;
+        border: solid 1px lightgray;
+    }
+    .actions{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 52px;
+    }
+}

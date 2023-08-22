@@ -17,7 +17,7 @@ export class BaseCrudService<T> {
     return this.http.get<T[]>(`${this.url}${this.complemento}`,{params:parans});
   }
 
-  public create(body:T){
+  public create(body:any){
     return this.http.post<T>(`${this.url}${this.complemento}`,body);
   }
 

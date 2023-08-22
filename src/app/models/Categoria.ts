@@ -1,4 +1,5 @@
 export class Categoria{
+    id!:string;
     nome!: string;
     descri!: string;
     categora_pai!: number | null;
